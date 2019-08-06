@@ -2,6 +2,7 @@ $(document).ready(startApp);
 
 function startApp(){
     getData();
+    foodAge();
 }
 
 function getData(){
@@ -16,4 +17,14 @@ function getData(){
 
 function handleDataFromServer(response){
     console.log(response);
+}
+
+function foodAge(){  
+    var food={
+        url:'../server/getfood.json',
+        method: 'GET',
+        dataType: 'json',
+        success: handleDataFromServer
+    }
+    $.ajax(food);
 }
